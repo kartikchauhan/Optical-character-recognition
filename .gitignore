@@ -1,0 +1,4 @@
+/test-images
+/training-images
+custom-data-pickle.dat
+mnist.pkl
