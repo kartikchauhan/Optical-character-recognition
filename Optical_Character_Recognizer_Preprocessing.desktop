@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=true
+Name=Handwriting_Recognizer_Preprocessing
+Exec=python /home/killwithme/Desktop/projects/final_year_project/GUI.py
+Comment=Provides GUI for preprocessing steps
+Icon=/home/killwithme/Desktop/app-icon-preprocessing.png
+Name[en_IN]=Optical_Character_Recognizer_Preprocessing

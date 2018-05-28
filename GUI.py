@@ -34,7 +34,7 @@ def conversion(dir_name):
             io.imsave(fullname, image)
 
 def segment_images():
-    img = cv2.imread('digits.png')
+    img = cv2.imread('/home/killwithme/Desktop/projects/final_year_project/digits.png')
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     cells = [np.hsplit(row, 100) for row in np.vsplit(gray, 50)]
@@ -43,18 +43,18 @@ def segment_images():
     cols = len(cells[0])
     k = 0
     image_num = 0
-    initial_dir = 'training-images'
+    initial_dir = '/home/killwithme/Desktop/projects/final_year_project/training-images'
 
     # creating initial directories
-    if not os.path.exists('training-images'):
-        os.makedirs('training-images')
+    if not os.path.exists('/home/killwithme/Desktop/projects/final_year_project/training-images'):
+        os.makedirs('/home/killwithme/Desktop/projects/final_year_project/training-images')
         write('created directory training-images')
-        os.makedirs('test-images')
+        os.makedirs('/home/killwithme/Desktop/projects/final_year_project/test-images')
         write('created directory test-images')
     else:
         write('Folders already exist')
 
-    initial_dir = 'test-images'
+    initial_dir = '/home/killwithme/Desktop/projects/final_year_project/test-images'
     inside_dir = 0
     image_num = 0
 
@@ -62,10 +62,10 @@ def segment_images():
     for i in range(0, rows):
         for j in range(0, cols):
             if(image_num % 250 == 0):
-                if(initial_dir == 'training-images'):
-                    initial_dir = 'test-images'
+                if(initial_dir == '/home/killwithme/Desktop/projects/final_year_project/training-images'):
+                    initial_dir = '/home/killwithme/Desktop/projects/final_year_project/test-images'
                 else:
-                    initial_dir = 'training-images'
+                    initial_dir = '/home/killwithme/Desktop/projects/final_year_project/training-images'
 
                 if not os.path.exists(initial_dir + '/' + str(k)):
                     os.makedirs(initial_dir + '/' + str(k))
@@ -148,7 +148,7 @@ def pickleData():
 
     set_list = [(training_set_image, training_set_labels), (test_set_image, test_set_labels)]
 
-    PIK = "custom-data-pickle.dat"
+    PIK = "/home/killwithme/Desktop/projects/final_year_project/custom-data-pickle.dat"
 
     with open(PIK, "ab") as fileOpen:
         pickle.dump(set_list, fileOpen)
@@ -194,7 +194,7 @@ text_box.grid(row=0, column=1, columnspan=8)
 button_1 = Tkinter.Button(root, text="Segment Images", command=segment_images)
 button_1.grid(row=1, column=1)
 
-button_2 = Tkinter.Button(root, text="Resize Images", command=lambda: sub.call('./resize-script.sh'))
+button_2 = Tkinter.Button(root, text="Resize Images", command=lambda: sub.call('bash ./Desktop/projects/final_year_project/resize-script.sh', shell=True))
 # button_1 = Tkinter.Button(root, text="Resize Images", command=resizeImages)
 button_2.grid(row=1, column=2)
 
